@@ -1,0 +1,565 @@
+@import "tailwindcss";
+
+/* ============================================
+   ROMANTIC BIRTHDAY — PREMIUM CSS
+   ============================================ */
+
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-card: rgba(15, 12, 25, 0.65);
+  --pink: #ff2d75;
+  --pink-soft: #ff6b9d;
+  --purple: #a855f7;
+  --purple-deep: #7c3aed;
+  --gold: #f5c842;
+  --gold-soft: #fde68a;
+  --blue: #3b82f6;
+  --blue-soft: #60a5fa;
+  --cyan: #06b6d4;
+  --text-primary: #f8f0ff;
+  --text-secondary: rgba(248, 240, 255, 0.6);
+  --glass-bg: rgba(20, 15, 35, 0.55);
+  --glass-border: rgba(168, 85, 247, 0.2);
+  --glow-pink: 0 0 30px rgba(255, 45, 117, 0.3);
+  --glow-purple: 0 0 30px rgba(168, 85, 247, 0.3);
+  --glow-gold: 0 0 30px rgba(245, 200, 66, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.4) rgba(10, 10, 15, 0.8);
+}
+
+body {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #130a1e 0%, var(--bg-dark) 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 15, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--pink), var(--purple));
+  border-radius: 999px;
+}
+
+::selection {
+  background: rgba(255, 45, 117, 0.3);
+  color: #fff;
+}
+
+/* ============================================
+   FONT UTILITIES
+   ============================================ */
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-dancing {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================
+   GRADIENT TEXT UTILITIES
+   ============================================ */
+
+.gradient-text-pink {
+  background: linear-gradient(135deg, var(--pink), var(--pink-soft), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, var(--purple), var(--blue-soft), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-love {
+  background: linear-gradient(135deg, #ff2d75, #a855f7, #f5c842);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.glass-subtle {
+  background: rgba(20, 15, 35, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+  border-radius: 16px;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-pink {
+  box-shadow: var(--glow-pink);
+}
+
+.glow-purple {
+  box-shadow: var(--glow-purple);
+}
+
+.glow-gold {
+  box-shadow: var(--glow-gold);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.4; filter: blur(8px); }
+  50% { opacity: 0.8; filter: blur(12px); }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(2deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-5px); }
+  75% { transform: translateY(-25px) translateX(15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.2); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  56% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(30px) translateY(-20px); }
+  50% { transform: translateX(-20px) translateY(-40px); }
+  75% { transform: translateX(15px) translateY(-60px); }
+  100% { transform: translateX(0) translateY(-80vh); opacity: 0; }
+}
+
+@keyframes shootingStar {
+  0% { transform: translateX(0) translateY(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(300px) translateY(300px); opacity: 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 8s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+.animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
+.animate-rotate-slow { animation: rotate-slow 20s linear infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 45, 117, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  opacity: 0;
+  transition: opacity 0.4s;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 45, 117, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   INPUT STYLES
+   ============================================ */
+
+.input-luxury {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(15, 12, 30, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.input-luxury:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 20px rgba(255, 45, 117, 0.15), inset 0 0 20px rgba(255, 45, 117, 0.05);
+}
+
+.input-luxury::placeholder {
+  color: rgba(248, 240, 255, 0.3);
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   ============================================ */
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   POLAROID CARD
+   ============================================ */
+
+.polaroid {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 12px 12px 40px 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.polaroid:hover {
+  transform: rotate(-2deg) scale(1.05);
+  box-shadow: 0 8px 40px rgba(255, 45, 117, 0.2);
+}
+
+/* ============================================
+   CURSOR GLOW (applied via JS)
+   ============================================ */
+
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 117, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* ============================================
+   MUSIC TOGGLE
+   ============================================ */
+
+.music-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--pink);
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--glow-pink);
+  border-color: var(--pink);
+}
+
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+
+.music-bar {
+  width: 3px;
+  background: var(--pink);
+  border-radius: 999px;
+  transition: height 0.3s;
+}
+
+.music-playing .music-bar:nth-child(1) { animation: musicBar 0.5s ease-in-out infinite alternate; }
+.music-playing .music-bar:nth-child(2) { animation: musicBar 0.5s ease-in-out 0.1s infinite alternate; }
+.music-playing .music-bar:nth-child(3) { animation: musicBar 0.5s ease-in-out 0.2s infinite alternate; }
+.music-playing .music-bar:nth-child(4) { animation: musicBar 0.5s ease-in-out 0.3s infinite alternate; }
+
+@keyframes musicBar {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+.music-paused .music-bar {
+  height: 4px;
+}
+
+/* ============================================
+   PAGE INDICATOR
+   ============================================ */
+
+.page-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.page-dot.active {
+  background: var(--pink);
+  box-shadow: 0 0 12px rgba(255, 45, 117, 0.5);
+  transform: scale(1.3);
+}
+
+.page-dot:hover {
+  background: rgba(255, 45, 117, 0.5);
+  transform: scale(1.2);
+}
+
+/* ============================================
+   LOADING SCREEN
+   ============================================ */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.loading-heart {
+  font-size: 3rem;
+  animation: heartbeat 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 45, 117, 0.5));
+}
+
+.loading-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+}
+
+.loading-bar-container {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--pink));
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .page-indicator {
+    right: 0.75rem;
+    gap: 8px;
+  }
+  
+  .page-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .music-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+}
